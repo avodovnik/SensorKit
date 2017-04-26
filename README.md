@@ -1,6 +1,6 @@
 # SensorKit
 
-SensorKit is a library and a set of tools for sensors and machine learning. The library makes it very easy to connect Bluetooth LE sensors to you app, gather sensor data and process it with advanced machine learning and AI algorithms.
+SensorKit is a library and a set of tools for sensors and machine learning. The library makes it very easy to connect Bluetooth LE sensors (or other sensors, e.g. WiFi etc) to you app, gather sensor data and process it with advanced machine learning and AI algorithms.
 
 ![SensorKit running in the app](https://github.com/kevinash/SensorKit/blob/master/assets/sensorkit_app_250.png)
 
