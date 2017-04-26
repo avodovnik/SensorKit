@@ -28,4 +28,6 @@ Add your own sensor to [SensorsRegistry](https://github.com/kevinash/SensorKit/b
 
 * Make sure to provide [SensorCapabilities](https://github.com/kevinash/SensorKit/blob/master/SensorKit/SensorCapabilities.cs) describing what your sensor can do in the [SensorsRegistry](https://github.com/kevinash/SensorKit/blob/master/SensorKit/SensorsRegistry.cs). If your sensor can do more than that, add new capability to [SensorCapabilities](https://github.com/kevinash/SensorKit/blob/master/SensorKit/SensorCapabilities.cs)
 
-* Create a new connector [SensorConnector](https://github.com/kevinash/SensorKit/blob/master/SensorKit/SensorCapabilities.cs) class for your sensor (naming convention is ...Connector e.g. MySensorConnector).
+* Clone and create a new connector class based on [SensorConnector](https://github.com/kevinash/SensorKit/blob/master/SensorKit/SensorKitConnector.cs) class for your sensor (naming convention is ...Connector e.g. MySensorConnector.cs). This class describes how your sensor connects with your device.
+
+* DONE! SensorKit automatically polls/accepts notifications from your sensor and updates its data model.
