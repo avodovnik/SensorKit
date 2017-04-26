@@ -1,4 +1,4 @@
-# SensorKit
+ b# SensorKit
 
 SensorKit is a library and a set of tools for sensors and machine learning
 
@@ -16,7 +16,7 @@ Add your own sensor to [SensorsRegistry](https://github.com/kevinash/SensorKit/b
 
 ## Apps using SensorKit
 
-[Active Fitness](http://activefitness.co)
+[Active Fitness](http://activefitness.co) - Active Fitness is a fitness tracking app and a social fitness network of 2 million users
 
-[Winter Sports](http://winter-sports.co)
+[Winter Sports](http://winter-sports.co) - Winter Sports is an app geared towards ski and snowboard enthusiasts
 
