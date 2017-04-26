@@ -22,3 +22,10 @@ Add your own sensor to [SensorsRegistry](https://github.com/kevinash/SensorKit/b
 
 [Winter Sports](http://winter-sports.co) - Winter Sports is an app geared towards ski and snowboard enthusiasts
 
+## How to add your sensor to SensorKit
+
+* Add your own sensor to [SensorsRegistry](https://github.com/kevinash/SensorKit/blob/master/SensorKit/SensorsRegistry.cs). SensorKit is open to all sensor manufacturers.
+
+* Make sure to provide [SensorCapabilities](https://github.com/kevinash/SensorKit/blob/master/SensorKit/SensorCapabilities.cs) describing what your sensor can do in the [SensorsRegistry](https://github.com/kevinash/SensorKit/blob/master/SensorKit/SensorsRegistry.cs). If your sensor can do more than that, add new capability to [SensorCapabilities](https://github.com/kevinash/SensorKit/blob/master/SensorKit/SensorCapabilities.cs)
+
+* Create a new connector [SensorConnector](https://github.com/kevinash/SensorKit/blob/master/SensorKit/SensorCapabilities.cs) class for your sensor (naming convention is ...Connector e.g. MySensorConnector).
