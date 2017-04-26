@@ -17,5 +17,6 @@ Add your own sensor to [SensorsRegistry](https://github.com/kevinash/SensorKit/b
 ## Apps using SensorKit
 
 [Active Fitness](http://activefitness.co)
+
 [Winter Sports](http://winter-sports.co)
 
