@@ -6,7 +6,7 @@ SensorKit is a library and a set of tools for sensors and machine learning. The 
 
 ## Sensors supported by SensorKit
 
-Add your own sensor to [SensorsRegistry](https://github.com/kevinash/SensorKit/blob/master/SensorKit/SensorsRegistry.cs)
+Add your own sensor to [SensorsRegistry](https://github.com/kevinash/SensorKit/blob/master/SensorKit/SensorsRegistry.cs). SensorKit is open to all sensor manufacturers. If you are a registered developer, simply update GitHub with your sensor information in the open [SensorsRegistry](https://github.com/kevinash/SensorKit/blob/master/SensorKit/SensorsRegistry.cs) and you can use SensorKit to connect to any sensors supported by the kit easily:
 
 [![illumiSki](https://github.com/kevinash/SensorKit/blob/master/assets/illumiski-150.png)](https://illumisens.com/collections/frontpage/products/illumiski-ski-sensor) [illumiSki](https://illumisens.com/collections/frontpage/products/illumiski-ski-sensor) sensor addon for ski and snowboard
 
