@@ -2,6 +2,8 @@
 
 SensorKit is a library and a set of tools for sensors and machine learning
 
+![SensorKit running in the app](https://github.com/kevinash/SensorKit/blob/master/assets/sensorkit_app.png)
+
 ## Sensors supported by SensorKit
 
 Add your own sensor to [SensorsRegistry](https://github.com/kevinash/SensorKit/blob/master/SensorKit/SensorsRegistry.cs)
