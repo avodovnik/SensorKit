@@ -14,6 +14,26 @@ SensorKit is an open library and a set of tools for sensors and machine learning
 
 * DONE! SensorKit automatically polls/accepts notifications from your sensor and updates its data model.
 
+## How to use SensorKit in your app
+
+A good place for SensorKit is your Universal app's App.xaml.cs file: declare Sensors property
+
+```C#
+public SensorKit Sensors { get; set;}
+```
+
+Then instantiate SensorKit in your OnLaunched event:
+
+```C#
+// make an instance of SensorKit
+Sensors = new SensorKit();
+```
+
+Then, when your app needs to scan for sensors supported by SensorKit, add:
+
+```C#
+Sensors.StartScanning();
+```
 
 ## Sensors supported by SensorKit
 
