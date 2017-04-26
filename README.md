@@ -4,6 +4,17 @@ SensorKit is a library and a set of tools for sensors and machine learning. The 
 
 ![SensorKit running in the app](https://github.com/kevinash/SensorKit/blob/master/assets/sensorkit_app_250.png)
 
+## How to add your sensor to SensorKit
+
+* Add your own sensor to [SensorsRegistry](https://github.com/kevinash/SensorKit/blob/master/SensorKit/SensorsRegistry.cs). SensorKit is open to all sensor manufacturers.
+
+* Make sure to provide [SensorCapabilities](https://github.com/kevinash/SensorKit/blob/master/SensorKit/SensorCapabilities.cs) describing what your sensor can do in the [SensorsRegistry](https://github.com/kevinash/SensorKit/blob/master/SensorKit/SensorsRegistry.cs). If your sensor can do more than that, add new capability to [SensorCapabilities](https://github.com/kevinash/SensorKit/blob/master/SensorKit/SensorCapabilities.cs)
+
+* Clone and create a new connector class based on [SensorConnector](https://github.com/kevinash/SensorKit/blob/master/SensorKit/SensorKitConnector.cs) class for your sensor (naming convention is ...Connector e.g. MySensorConnector.cs). This class describes how your sensor connects with your device.
+
+* DONE! SensorKit automatically polls/accepts notifications from your sensor and updates its data model.
+
+
 ## Sensors supported by SensorKit
 
 Add your own sensor to [SensorsRegistry](https://github.com/kevinash/SensorKit/blob/master/SensorKit/SensorsRegistry.cs). SensorKit is open to all sensor manufacturers. If you are a registered developer, simply update GitHub with your sensor information in the open [SensorsRegistry](https://github.com/kevinash/SensorKit/blob/master/SensorKit/SensorsRegistry.cs) and you can use SensorKit to connect to any sensors supported by the kit easily:
@@ -22,12 +33,3 @@ Add your own sensor to [SensorsRegistry](https://github.com/kevinash/SensorKit/b
 
 [Winter Sports](http://winter-sports.co) - Winter Sports is an app geared towards ski and snowboard enthusiasts
 
-## How to add your sensor to SensorKit
-
-* Add your own sensor to [SensorsRegistry](https://github.com/kevinash/SensorKit/blob/master/SensorKit/SensorsRegistry.cs). SensorKit is open to all sensor manufacturers.
-
-* Make sure to provide [SensorCapabilities](https://github.com/kevinash/SensorKit/blob/master/SensorKit/SensorCapabilities.cs) describing what your sensor can do in the [SensorsRegistry](https://github.com/kevinash/SensorKit/blob/master/SensorKit/SensorsRegistry.cs). If your sensor can do more than that, add new capability to [SensorCapabilities](https://github.com/kevinash/SensorKit/blob/master/SensorKit/SensorCapabilities.cs)
-
-* Clone and create a new connector class based on [SensorConnector](https://github.com/kevinash/SensorKit/blob/master/SensorKit/SensorKitConnector.cs) class for your sensor (naming convention is ...Connector e.g. MySensorConnector.cs). This class describes how your sensor connects with your device.
-
-* DONE! SensorKit automatically polls/accepts notifications from your sensor and updates its data model.
