@@ -34,6 +34,20 @@ Then, when your app needs to scan for sensors supported by SensorKit, add:
 ```C#
 Sensors.StartScanning();
 ```
+If you have SensorKit supported devices around, this will eventually add discovered devices to SensorKit.Data, a collection of discovered sensors. After sensors are added you can subscribe to them:
+
+```C#
+ var sensor = Sensors.FirstOrDefault(s=>s.Name == "My Sensor");
+ if(sensor != null)
+  await sensor.Subscribe();
+ ``` 
+
+The above subscribes to the sensor. You probably also need to tag your sensor (for example by establishing a human body joint it's attached to). Simply, set sensor.Tag, for example sensor.Tag = "LeftLowerArm"; Once the sensor is subscribed to, SensorKit will be polling data automatically, if you started polling with:
+
+```C#
+Sensors.Start();
+``` 
+
 
 SensorKit supports the latest Bluetooth stack, GATT Services and unpaired devices (you don't need to make users pair with the sensor for sensor kit to use its data).
 
