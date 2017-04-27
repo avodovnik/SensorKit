@@ -51,6 +51,10 @@ Sensors.Start();
 
 SensorKit supports the latest Bluetooth stack, GATT Services and unpaired devices (you don't need to make users pair with the sensor for sensor kit to use its data).
 
+## Azure Auto Upload
+
+Uploading to Azure happens automatically, if you provided Azure storage account name, key and container. 
+
 ## Sensors supported by SensorKit
 
 Add your own sensor to [SensorsRegistry](https://github.com/kevinash/SensorKit/blob/master/SensorKit/SensorsRegistry.cs). SensorKit is open to all sensor manufacturers. If you are a registered developer, simply update GitHub with your sensor information in the open [SensorsRegistry](https://github.com/kevinash/SensorKit/blob/master/SensorKit/SensorsRegistry.cs) and you can use SensorKit to connect to any sensors supported by the kit easily:
