@@ -22,9 +22,9 @@ namespace SensorKit
 
     public class SensorKit : ViewModel
     {
-        const string AZURE_STORAGE_ACCOUNT_NAME = "<ADD YOUR AZURE STORAGE ACCOUNT NAME>";
-        const string AZURE_STORAGE_ACCOUNT_KEY = "<ADD YOUR AZURE STORAGE ACCOUNT KEY>";
-        const string AZURE_STORAGE_CONTAINER = "<ADD YOUR AZURE STORAGE CONTAINER NAME>";
+        const string AZURE_STORAGE_ACCOUNT_NAME = null; // "<ADD YOUR AZURE STORAGE ACCOUNT NAME>";
+        const string AZURE_STORAGE_ACCOUNT_KEY = null; // "<ADD YOUR AZURE STORAGE ACCOUNT KEY>";
+        const string AZURE_STORAGE_CONTAINER = null; // "<ADD YOUR AZURE STORAGE CONTAINER NAME>";
 
         const string DEVICE_PREFIX = "SensorKit";
         public static string folderPrefix = "sensorKit";
@@ -203,7 +203,7 @@ namespace SensorKit
                     try
                     {
                         var folder = await FileSystem.Current.LocalStorage.GetFolderAsync($"{folderPrefix}_{DateTime.Now:yyyyMMdd}");
-                        if (folder != null)
+                        if (folder != null && AZURE_STORAGE_ACCOUNT_KEY != null && AZURE_STORAGE_ACCOUNT_NAME != null && AZURE_STORAGE_CONTAINER != null)
                         {
                             var processedFolder = await folder.CreateFolderAsync("processed", PCLStorage.CreationCollisionOption.OpenIfExists);
                             var files = await folder.GetFilesAsync();
