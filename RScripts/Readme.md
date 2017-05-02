@@ -1,14 +1,37 @@
 # Processing, Analyzing, and Modeling Sport Sensor Data
 
-This directory contains the R script files and their accompany parameter files that are developed by Microsoft to process, analyze, and model sport sensor data. The R scripts have been generalized to analyze and model your own data, which might have different column names, different number of sensors, etc, with the data we collected from the ski sensory data. You only need to customize the the parameter file for each R script file, before you run the R script file. 
+This directory contains the R script files and their accompany parameter files that are developed by Microsoft to process, analyze, and model sport sensor data. The R scripts are developed based on ski sports data collected during a hackfest with a Microsoft partner. We have generalized the R scripts so that they can also be used to analyze and model your own data, which might have different data schema as the data we collected from the ski sensory data. You only need to customize the the parameter file for each R script file, before you run the R scripts. 
 
-The ski sensory data we collected can be downloaded [here (please provide the link here after uploading to Azure blob)](). If you want to try the R script files out first on the ski sensory data to see how these R script files work, please download it first to your local machine, and update the path to this data file in the Enhance_Sensor_Data. 
+The ski sensory data we collected can be downloaded [here](http://publicdatarepo.blob.core.windows.net/sportssensor/ski_sensor_long_anonymized.csv?sv=2014-02-14&sr=c&sig=g%2F28RlW7JSeo0M5QJ8gQj6j%2Bbl1KHvGIU79DoXcZN%2F4%3D&st=2017-05-01T07%3A00%3A00Z&se=2018-06-01T07%3A00%3A00Z&sp=r). If you want to try the R script files out first on the ski sensory data to see how these R script files work, please download it first to your local machine, and take the following steps to reformat, process, analyze, and model the sport sensor data. 
 
-![update_data_file](./media/update-data-file-path.png)
+## Step 1. Reformat the raw sensor data
 
-Then, take the following steps to process, analyze, and model the sport sensor data. 
+In many cases, it is convenient to store the readings of multiple sensors at the same time stamp in multiple rows, one row per sensor. We name this way of sensor reading storage as _Long_. Such a way of recording presents some challenge to data analysis and modeling. For data analysis and modeling, the most convenient way is that for each time stamp, all sensor readings are in the same row, where each column represents the reading of a single sensor. We name this way of storage as _Wide_.
 
-## Step 1. Enhance the sport sensor data by deriving extra variables from raw sensor readings
+Therefore, if the original sensor reading storage is _Long_, we need to reformat it to be _Wide_, so that we can more easily analyze and model the sensor data later. 
+
+The R script file _Reformat\_Sensor\_Data.R does this work. It takes two inputs: 
+
+- The original sensor data csv file stored as _Long_ format. 
+
+- A parameter text file in JSON format which provides information on how to format the _Long_ storage to _Wide_ storage. It has the following fields:
+
+	- Features: specify the names of columns that you want to keep for each sensor. It should also include columns that are needed to join readings of multiple sensors. The column names should be separated by ",". 
+	
+	- Ids: the column names that should be used to join the readings of multiple sensors. 
+	
+	- Dcast_Columns: _Patty, please provide more explanation here_
+
+After the JSON text file is customized, update the file information in _Reformat\_Sensor\_Data.R_, and then run the R script file to reformat the data from _Long_ to _Wide_. 
+
+![update-data-file-long](./media/update-data-file-path-long.png)
+
+In the end of the R script file, you should also specify an output file name so that the _Wide_ sensor data can be further analyzed by the following steps. 
+
+![save-wide-sensor-data](./media/save-wide-sensor-data.png)
+
+
+## Step 2. Enhance the sport sensor data by deriving extra variables from raw sensor readings
 
 It is very likely that the sport sensors are only measuring the position, line speed, acceleration, or rotation of joints of some body parts when the athletes are executing some actions. However, sometimes, some variables that are describing the relative position/angle between two body parts or planes might be more meaningful for some sports. For instance, for ski, variables that are measuring the distance between two feet, the angles between upper and lower trunk planes might be very informative in describing how different body parts are coordinating together when completing a task. 
 
@@ -50,7 +73,7 @@ You may also want to remove the comments in the last two lines of the R script f
 
 Then, you can run the R script file _Enhance\_Sensor\_Data.R_ to derive the extra columns. After it completes running, you are ready to move to the next step to aggregate data and generate features for machine learning models. 
 
-## Step 2. Aggregate raw enhanced sensor data to generate features
+## Step 3. Aggregate raw enhanced sensor data to generate features
 
 In this version of sensor data analysis and modeling, we split the data collected during each experiment into multiple ~2-second segments, and statistics in each segment are extracted to characterize the activities of athletes. For machine learning task, we also label each segment with the label of the entire experiment. There are several benefits of splitting the entire experiment into segments:
 
@@ -85,7 +108,7 @@ After you have the _feature\_dict.csv_ customized, you should update the R scrip
 ![update-data-feature-files](./media/update-data-feature-file-path.png)
 ![update-feature-output](./media/update-feature-set-output.png)
 
-## Step 3. Analyze the feature set and train a logistic regression model. 
+## Step 4. Analyze the feature set and train a logistic regression model. 
 The R script file _Feature\_Analysis\_Modeling.R_ has the following functions:
 
 - It ranks the features by the strength of the linear relationship with the target columns, and prints out the top _N_ most related features. 
