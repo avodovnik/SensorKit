@@ -1,0 +1,3 @@
+{"Features":"ExperimentDate, ExperimentTime, ExperimentTimeFraction, experimentId, activityTypeId, subjectId, tag, x, y, z, aX, aY, aZ, qW, qX, qY, qZ, speed",
+"Ids":"ExperimentDate, ExperimentTime, ExperimentTimeFraction, experimentId, activityTypeId, subjectId, tag",
+"Dcast_Columns":"ExperimentDate, ExperimentTime, ExperimentTimeFraction, experimentId, activityTypeId, subjectId"}

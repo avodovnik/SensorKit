@@ -18,15 +18,14 @@
 # It outputs an enhanced dataset with extra columns which are derived 
 # from the original sensor data
 
-datafile <- "C:\\Projects\\SensorReport\\final_wide_data_0422.csv"
+datafile <- "C:\\Projects\\SensorReport\\wide_sensor_data_anonymized.csv"
 
-dataset <- read.csv(datafile, sep=",", header=TRUE)
+dataset1 <- read.csv(datafile, sep=",", header=TRUE)
 
 derivedSensorFile <-  "C:\\Projects\\SensorReport\\DerivedSensors.csv"
 dataset2 <- read.csv(derivedSensorFile, sep=",", header=TRUE, stringsAsFactors = F)
 # Remove the leading and tailing spaces around Output_ColName
 dataset2[,'Output_ColName'] <- gsub("^\\s+|\\s+$", "", dataset2[,'Output_ColName'])
-dataset1 <- dataset[1:1000, ]
 
 # Function to extract column names from a string, where multiple column names are 
 # separated by '<sep>'
@@ -133,5 +132,5 @@ for (i in 1:num_extra_features){
 # You can directly use the following lines to write to a local csv file. 
 # Depending on the size of the data to be written to the destination file, it may take a while.
 
-# outputfile <- <the path and file name to a destination csv file>
-# write.csv(dataset1, file=outputfile, sep=",", row.names=FALSE, quote=FALSE)
+outputfile <- "C:\\Projects\\SensorReport\\enhanced_wide_sensor_data_anonymized.csv"
+write.csv(dataset1, file=outputfile, sep=",", row.names=FALSE, quote=FALSE)
