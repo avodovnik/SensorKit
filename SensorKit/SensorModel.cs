@@ -164,7 +164,7 @@ namespace SensorKit
             Controller = controller;
             Name = name;
             // initialize the tag
-            if(SensorKit.Settings.Tags.ContainsKey(SensorKit.GetHashName(Name)))
+            if(SensorKit.Settings.Tags != null && SensorKit.Settings.Tags.ContainsKey(SensorKit.GetHashName(Name)))
                 _tag = SensorKit.Settings.Tags[SensorKit.GetHashName(Name)];
             OnPropertyChanged("Tag");
         }
