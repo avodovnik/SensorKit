@@ -7,7 +7,7 @@
 # 2. A csv file describing what extra columns you want to add to better describe 
 #    the subject activities. Each row should have the following columns:
 #    2.1 Feature_Type: what type of feature it is. Currently support four types: Distance,
-#        CenterPoint, NormalLinetoPlan, and AngleCosine
+#        CenterPoint, NormalLinetoPlane, and AngleCosine
 #    2.2 Output_ColName: name of the derived column added to the data
 #    2.3 Input_ColName1: names of the column representing point 1
 #    2.4 Input_ColName2: names of the column representing point 2
