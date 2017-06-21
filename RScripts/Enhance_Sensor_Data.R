@@ -13,7 +13,10 @@
 #    2.4 Input_ColName2: names of the column representing point 2
 #    2.5 Input_ColName3: names of the column representing point 3
 # Note: in 2.3-2.5, if multiple columns are needed to define each point, the names of these 
-#    columns should be separated by :
+#    columns should be separated by :, where each column is a coordinate. 
+#    For instance, for feature type NormalLinetoPlane, three points are needed to define a plane in 3-D space.
+#    Each point should be defined by 3 columns: x, y, and z. Then, the names of these 3 coordinates of a point
+#    such as left shoulder should be concatenated by : like leftshoulder_x:leftshoulder_y:leftshoulder_z. 
 # Outputs: 
 # It outputs an enhanced dataset with extra columns which are derived 
 # from the original sensor data
