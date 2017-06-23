@@ -61,3 +61,6 @@ melted$tag<-NULL
 
 widedata<- dcast(melted, ExperimentDate + ExperimentTime + ExperimentTimeFraction + experimentId + activityTypeId + subjectId  ~ variable)
 
+output_file <- "" # provide a local file name to save the "wide" data
+write.csv(widedata, file=output_file, row.names=FALSE, sep=",", quote=FALSE)
+
