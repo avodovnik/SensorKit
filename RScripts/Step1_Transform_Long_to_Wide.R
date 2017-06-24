@@ -28,7 +28,8 @@ library(ggplot2)
 library(zoo)
 
 # Read the 1.35GB ski sensory data from Azure blob storage SAS url. Depending on the speed of internet and the configuration of your computer,
-# this may take a while (even longer than a couple of hours). Alternatively, instead of 
+# this may take a while (even longer than a couple of hours). Alternatively, you can first download a copy of the data to your local machine,
+# and load the data from this local copy to R workspace, might speed up the data loading process.
 raw_sensor_file <- "http://publicdatarepo.blob.core.windows.net/sportssensor/ski_sensor_long_anonymized.csv?sv=2014-02-14&sr=c&sig=E0%2BRNOt6%2FqiKEnVGOmV5Uu7rFYJCih9NDJYmx7wW4TU%3D&st=2017-06-22T07%3A00%3A00Z&se=2020-01-01T08%3A00%3A00Z&sp=r"
 exp_dataset <- read.csv(url(raw_sensor_file), header=T, sep=",")
 exp_dataset$index<-rownames(exp_dataset)
@@ -60,6 +61,11 @@ melted$variable<-paste(melted$tag,melted$variable)
 melted$tag<-NULL 
 
 widedata<- dcast(melted, ExperimentDate + ExperimentTime + ExperimentTimeFraction + experimentId + activityTypeId + subjectId  ~ variable)
+
+# Replace spaces in column names to provide convenience to further analysis
+col_names <- colnames(widedata)
+col_names <- gsub(' ', '_', col_names)
+colnames(widedata) <- col_names
 
 output_file <- "" # provide a local file name to save the "wide" data
 write.csv(widedata, file=output_file, row.names=FALSE, sep=",", quote=FALSE)

@@ -19,7 +19,7 @@ data <- read.csv(datafile, sep=",", header=TRUE, stringsAsFactors=FALSE)
 
 # Read the text file which defines the parameters for feature engineering
 # in json format
-parameter_file <- "C:\\Projects\\SensorReport\\feature_dict.csv"
+parameter_file <- "C:\\Projects\\SensorReport\\Step3_Config_Feature_Dict.csv"
 dataset2 <- read.csv(parameter_file, sep="\t", header=F, quote="'")
 library(rjson)
 library(stringr)

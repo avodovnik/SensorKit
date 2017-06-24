@@ -25,7 +25,7 @@ datafile <- "C:\\Projects\\SensorReport\\final_wide_data_0422.csv"
 
 dataset <- read.csv(datafile, sep=",", header=TRUE)
 
-derivedSensorFile <-  "C:\\Projects\\SensorReport\\DerivedSensors.csv"
+derivedSensorFile <-  "C:\\Projects\\SensorReport\\Step2_Config_DerivedSensors.csv"
 dataset2 <- read.csv(derivedSensorFile, sep=",", header=TRUE, stringsAsFactors = F)
 # Remove the leading and tailing spaces around Output_ColName
 dataset2[,'Output_ColName'] <- gsub("^\\s+|\\s+$", "", dataset2[,'Output_ColName'])
