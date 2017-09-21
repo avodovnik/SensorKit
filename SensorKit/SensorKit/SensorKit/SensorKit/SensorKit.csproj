@@ -31,6 +31,7 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="BLE\BLEDevice.cs" />
     <Compile Include="BLE\BLEDiscoveryProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SensorKit.cs" />

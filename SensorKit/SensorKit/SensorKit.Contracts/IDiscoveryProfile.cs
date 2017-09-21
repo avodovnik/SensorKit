@@ -12,12 +12,17 @@ namespace SensorKit.Contracts
     /// </summary>
     public interface IDiscoveryProfile
     {
-        Task StartScanningAsync(OnDeviceFoundDelegate onDeviceFound);
+        Task StartScanningAsync(
+            OnDeviceFoundDelegate onDeviceFound,
+            OnDeviceDisconnectedDelegate onDeviceDisconnected,
+            OnDeviceConnectionErrorDelegate onDeviceConnectionError);
 
         void StopScanning();
 
     }
 
     public delegate void OnDeviceFoundDelegate(ISensorKitDevice device);
+    public delegate void OnDeviceDisconnectedDelegate(ISensorKitDevice device);
+    public delegate void OnDeviceConnectionErrorDelegate(ISensorKitDevice device, string errorMessage);
 
 }
